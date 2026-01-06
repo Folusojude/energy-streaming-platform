@@ -28,7 +28,7 @@ services:
       - "5432:5432"
 
   spark:
-    image: bitnami/spark:3.5
+    image: apache/spark:3.5.0
     depends_on:
       - kafka
     environment:
