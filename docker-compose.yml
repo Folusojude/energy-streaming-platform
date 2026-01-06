@@ -26,10 +26,12 @@ services:
       - "5432:5432"
 
   spark:
-    image: apache/spark:3.5.0
-    depends_on:
-      - kafka
-    environment:
-      - SPARK_MODE=master
-    ports:
-      - "8080:8080"
+  image: apache/spark:3.5.0
+  container_name: spark
+  depends_on:
+    - kafka
+  ports:
+    - "8080:8080"
+  command: >
+    /opt/spark/bin/spark-class
+    org.apache.spark.deploy.master.Master
