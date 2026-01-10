@@ -32,6 +32,8 @@ services:
       - kafka
     ports:
       - "8080:8080"
+    volumes:
+      - ./streaming:/opt/spark/work-dir
     command: >
       /opt/spark/bin/spark-class
       org.apache.spark.deploy.master.Master
